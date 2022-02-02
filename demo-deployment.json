@@ -1,0 +1,37 @@
+{
+   "kind":"ReplicationController",
+   "apiVersion":"v1",
+   "metadata":{
+      "name":"demo",
+      "labels":{
+         "app":"demo"
+      }
+   },
+   "spec":{
+      "replicas":3,
+      "selector":{
+         "app":"demo"
+      },
+      "template":{
+         "metadata":{
+            "labels":{
+               "app":"demo"
+            }
+         },
+         "spec":{
+            "containers":[
+               {
+                  "name":"demo",
+                  "image":"docker.io/annkovattil/test",
+                  "ports":[
+                     {
+                        "name":"http-server",
+                        "containerPort":3000
+                     }
+                  ]
+               }
+            ]
+         }
+      }
+   }
+}
